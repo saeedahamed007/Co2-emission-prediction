@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+
+<head>
+    <title>Bike Usage Model</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        ENGINESIZE:
+        <input name="ENGINESIZE" type="number" step='0.1' required>
+        <br>
+        <br> CYLINDERS:
+        <input name="CYLINDERS" type="number" step='0.1' required>
+        <br>
+        <br> FUELCONSUMPTION_CITY:
+        <input name="FUELCONSUMPTION_CITY" type="number" step='0.1' required>
+        <br>
+        <br> FUELCONSUMPTION_HWY:
+        <input name="FUELCONSUMPTION_HWY" type="number" step='0.1' required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+    	<!-- {% for variable, value in original_input.items() %}
+    		<b>{{ variable }}</b> : {{ value }}
+    	{% endfor %} -->
+		<br>
+    	<br> Your Vehicles CO2 Emission is :
+   		<p style="font-size:40px">{{ result }}</p>
+    {% endif %}
+</div>
+
+</html>
